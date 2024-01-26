@@ -12,11 +12,11 @@ Visual Studio Code (VSCode)
 웹 애플리케이션
 명령 프롬프트에서 디렉토리로 이동
 
-bash
-Copy code
+```cmd
 D:
 cd D:\test\for_musicvirus
 웹 앱 프로젝트 생성
+```
 
 bash
 Copy code
