@@ -36,6 +36,8 @@ public class ReportController : ControllerBase
         // ReportData 객체를 JSON 문자열로 직렬화하여 로깅
         _logger.LogInformation($"Received report: {JsonConvert.SerializeObject(reportData)}");
 
+        // TODO: reportData 객체를 DB에 저장하거나, 다른 처리를 수행
+
         // 요청에 성공적으로 응답하고, messageId를 반환
         return Ok(new { messageId = reportData.MessageId });
     }
