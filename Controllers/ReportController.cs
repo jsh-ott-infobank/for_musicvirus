@@ -33,8 +33,20 @@ public class ReportController : ControllerBase
     [HttpPost]
     public IActionResult Post([FromBody] ReportData reportData)
     {
-        // ReportData 객체를 JSON 문자열로 직렬화하여 로깅
-        _logger.LogInformation($"Received report: {JsonConvert.SerializeObject(reportData)}");
+        // HTTP 요청에서 'X-MessageType' 헤더의 값을 가져옵니다.
+        // 가능한 'X-MessageType' 헤더 값 목록:
+        // - AL: 알림톡
+        // - AI: 이미지 알림톡
+        // - FT: 친구톡 텍스트
+        // - FI: 친구톡 이미지
+        // - FW: 친구톡 와이드 이미지
+        // - BI: 브랜드톡 이미지
+        // - MT: MT(문자메시지) failover 접수 실패
+        // - RCS: RCS failover 접수 실패
+        var messageType = Request.Headers["X-MessageType"].FirstOrDefault() ?? String.Empty;
+
+        // ReportData 객체와 messageType을 로깅합니다.
+        _logger.LogInformation($"Received message type: '{messageType}', Report: {JsonConvert.SerializeObject(reportData)}");
 
         // TODO: reportData 객체를 DB에 저장하거나, 다른 처리를 수행
 
