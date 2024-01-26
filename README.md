@@ -44,7 +44,7 @@ dotnet new webapi -n ReportServer
 
 ```cmd
 cd ReportServer
-```cmd
+```
 
 ## 패키지 추가
 
