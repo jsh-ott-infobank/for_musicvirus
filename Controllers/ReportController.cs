@@ -41,6 +41,7 @@ public class ReportController : ControllerBase
         // - FI: 친구톡 이미지
         // - FW: 친구톡 와이드 이미지
         // - BI: 브랜드톡 이미지
+        // - BW: 브랜드톡 와이드 이미지
         // - MT: MT(문자메시지) failover 접수 실패
         // - RCS: RCS failover 접수 실패
         var messageType = Request.Headers["X-MessageType"].FirstOrDefault() ?? String.Empty;
